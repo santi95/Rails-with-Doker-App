@@ -1,0 +1,18 @@
+<div class="home-jumbotron-2">
+</div>
+<div class="sub_bar">
+  <h1 id="margin-title">Post</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h1>Edit Comment </h1>
+    <% if can? :destroy, @comment %>
+      <%= render "form"%>
+      <br>
+      <%= link_to '<button type="button" class="btn btn-warning">Delete</button>'.html_safe, forum_post_comment_path(@forum, @post, @comment), method: :delete, data: {confirm:
+      "Are you sure?"}%>
+    <% end %>
+
+  </div>
+</div>

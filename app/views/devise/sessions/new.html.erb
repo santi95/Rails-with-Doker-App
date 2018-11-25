@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="container-general-2">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title has-text-grey" id="centered-text">
+              Log In
+            </h1>
+            <p class="subtitle has-text-grey" id="centered-text">
+              Please sign in to proceed.
+            </p>
+            <div class="box-2">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: false, autocomplete: "email", class:"form-group col-md-5", class:"form-control", id: "width-93"  %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :password %><br />
+                  <%= f.password_field :password, autocomplete: "on", class:"form-group col-md-5", class:"form-control", id: "width-93"  %>
+                </div>
+
+                <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </div>
+                <% end -%>
+                <div>
+
+                <div class="row">
+                  <div class= "col pull-left">
+                  <%= f.submit "Log in", class: "btn btn-lg btn-primary separado"%>
+                  <% end %>
+                  </div>
+              
+                  <%= render "devise/shared/links" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

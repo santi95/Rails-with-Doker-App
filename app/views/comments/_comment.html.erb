@@ -1,0 +1,47 @@
+
+  <div>
+      <p id=font_style_1>
+        Commented <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name + ": " %>
+      </p>
+    <div class="usuario-comentario"> <%= raw markdownify_comment comment.content %> </div>
+    <% if String(comment.image) != "/images/original/missing.png" %>
+      <img src=<%= comment.image %> style="height:300px; width:300px;" >
+    <%end%>
+    <%= link_to like_forum_post_comment_path(comment.post.forum, comment.post, comment), class: "like", method: :put do%>
+    <br>
+    <button type="button" class="btn btn-info" aria-label="Left Align">
+      <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+      <span class="badge" > <%= comment.get_upvotes.size %> </span>
+    </button>
+    <% end %>
+
+    <%= link_to unlike_forum_post_comment_path(comment.post.forum, comment.post, comment), class: "like", method: :put do%>
+    <button type="button" class="btn btn-info" aria-label="Left Align">
+      <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+      <span class="badge" > <%= comment.get_downvotes.size %> </span>
+    </button>
+    <% end %>
+
+    <% if can? :update, comment %>
+    <%= link_to edit_forum_post_comment_path(comment.post.forum, comment.post, comment), class: "like", method: :get do%>
+    <button type="button" class="btn btn-info" aria-label="Left Align">
+      Edit
+    </button>
+    <% end %>
+    <% end %>
+    <hr class="my-4">
+    <h2 id="font_style_2">Replies</h2>
+    <% if comment.replies.any? %>
+      <%= render comment.replies %>
+    <%end%>
+
+    <h4 id="font_style_3">Add reply</h4>
+    <% if can? :create, comment %>
+      <% @reply = Reply.new %>
+      <%= simple_form_for [@forum, @post, comment, @reply] do |f|%>
+      <%= f.input :content, :as =>  :text, :input_html => { :row => 15, :style=> 'width: 98%; height: 80px;'} %>
+      <%= f.input :image, as: :file %>
+      <%= f.button :submit, 'Reply',class:"btn btn-success"  %>
+      <%end%>
+    <%end%>
+  </div>

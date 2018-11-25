@@ -1,0 +1,45 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.two_chars {background-color: WhiteSmoke;
+  margin: 0 auto;
+  width: 100%;
+  color:black;
+  opacity:0.7;
+  filter: alpha(opacity=50);
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid WhiteSmoke;
+  border-radius: 20px;
+  font: 15px arial, sans-serif;
+
+}
+.two_chars > button {
+  border-radius:30px
+}
+#comment-container {
+  margin: 0 auto;
+}
+
+#color_line {
+  color: Gray
+}
+
+#font_style_1{
+  font-style: italic;
+  font-size: medium;
+}
+
+#font_style_2{
+  font-size: 28px;
+  font-weight: bold;
+  color: #08298A;
+}
+
+#font_style_3{
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+}

@@ -1,0 +1,6 @@
+
+  <%= simple_form_for [@forum, @post, @comment] do |f|%>
+    <%= f.input :content, :as =>  :text, :input_html => { :row => 15, :style=> 'width: 90%; height: 200px;'} %>
+    <%= f.input :image, as: :file %>
+    <%= f.button :submit, 'Comment',class:"btn btn-success"  %>
+  <%end%>

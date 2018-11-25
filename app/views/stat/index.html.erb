@@ -1,0 +1,111 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-5" style="margin-left:3%;">
+            <table class="tborder">
+            <h3>Popular Forums</h3>
+            <thead>
+                <tr>
+                <th class="trow2">
+                    Forum
+                </th>
+                <th class="trow2">
+                    Subject
+                </th>
+                <th class="trow2">
+                    Subscribers
+                </th>
+                <th class="trow2">
+                </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @query_forums.each do |forum| %>
+                <tr>
+
+                <td class="trow1">
+                    <strong>
+                    <%= link_to forum.name, forum_path(forum) %>
+                    </strong>
+
+                    <div class="smalltext">
+                    Created: <%= forum.updated_at %>
+                    </div>
+
+                </td>
+
+                <td class="trow1">
+                    <%= forum.subject%>
+                </td>
+
+                <td class="trow1" id="align-center">
+                    <%= forum.number_subscriptions%>
+                </td>
+                            
+                <td class="trow1" id="align-center">
+                
+                <% end %>
+                
+                </td>
+
+                </tr>
+            </tbody>
+            </table>
+        
+        </div>
+
+        <div class="col-md-5">
+            <table class="tborder">
+            <h3>Popular People</h3>
+            <thead>
+                <tr>
+                <th class="trow2">
+                    User
+                </th>
+                <th class="trow2">
+                    Reputation
+                </th>
+                <th class="trow2">
+                </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @query_users.each do |user| %>
+                <tr>
+
+                <td class="trow1">
+                    <strong>
+                    <%= user.name %>
+                    </strong>
+
+                </td>
+
+                <td class="trow1">
+                    <%= user.reputation%>
+                </td>
+
+                
+                            
+                <td class="trow1" id="align-center">
+                
+                <% end %>
+                
+                </td>
+
+                </tr>
+            </tbody>
+            </table>
+        
+        </div>
+
+
+
+
+    </div>
+

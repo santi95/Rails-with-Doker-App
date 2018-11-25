@@ -1,0 +1,131 @@
+<div class="home-jumbotron-2">
+</div>
+<div class="sub_bar">
+  <h1 id="margin-title">Forums</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="forums_box">
+
+      <div class="subnavbar">
+        <%= form_tag(forums_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Forums", class: 'groove' %>
+        <%= submit_tag "Search", :name => nil, class:'btn-md' %>
+        <% end %>
+        <% if can? :create, Forum %>
+        
+        <%= link_to '<button type="button" class="btn btn-lg btn-primary">Create forum</button>'.html_safe, new_forum_path, class: 'flex-end'%>
+        <% end %>
+      </div>
+      <br>
+      <% if @forums.blank? %>
+      <% if params[:search].blank? %>
+      <h3>
+        There are no Forums
+      </h3>
+      <% else %>
+      <h4>
+        There are no Forums containing the term: <%= params[:search] %>.
+      </h4>
+      <% end %>
+      <% else %>
+      <% if params[:search].blank? %>
+      <% else %>
+      <h4>
+        Results for Forum Search on: <%= params[:search] %>.
+      </h4>
+      <% end %>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-7">
+        <table class="tborder">
+          <thead>
+            <tr>
+              <th class="trow2">
+                Forum
+              </th>
+              <th class="trow2">
+                Subject
+              </th>
+              <th class="trow2">
+                Subscribers
+              </th>
+              <th class="trow2">
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @forums.each do |forum| %>
+            <tr>
+
+              <td class="trow1">
+                <strong>
+                  <%= link_to forum.name, forum_path(forum) %>
+                </strong>
+
+                <div class="smalltext">
+                  Created <%= time_ago_in_words(forum.created_at) %> ago
+                </div>
+
+              </td>
+
+              <td class="trow1">
+                <%= forum.subject%>
+              </td>
+
+              <td class="trow1" id="align-center">
+                <%= forum.number_subscriptions%>
+              </td>
+                          
+              <td class="trow1" id="align-center">
+              <% if user_signed_in? %>
+                <%unless current_user.forums.include? forum %>
+                <%= button_to "Subscribe",subscribe_path(:forum => forum.id), method: :post, class: "btn btn-success"%>
+              <%end%>
+              <% end %>
+              
+              </td>
+
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+      <% if user_signed_in? %>
+        <table class="tborder-2">
+          <thead>
+            <tr>
+              <th class="trow3" id="align-center">
+                My Subscriptions
+              </th>
+              <th class="trow3">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% current_user.forums.each do |f| %>
+            <tr>
+              <td id="align-center">
+                <strong>
+                  <%= link_to f.name, forum_path(f) %>
+                </strong>
+              </td>
+              <td id="align-center">
+                <br>
+                <%= button_to "Unsubscribe",unsubscribe_path(:forum => f.id), method: :post, class: "btn btn-danger btn-xs"%>
+                <br>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

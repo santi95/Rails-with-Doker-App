@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  creation_date: MyString
+  topic: MyString
+  content: MyString
+  reputation_score: 1
+
+two:
+  title: MyString
+  author: MyString
+  creation_date: MyString
+  topic: MyString
+  content: MyString
+  reputation_score: 1

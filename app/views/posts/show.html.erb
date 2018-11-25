@@ -1,0 +1,96 @@
+<div class="home-jumbotron-2">
+</div>
+<div class="sub_bar">
+  <h1 id="margin-title">Post</h1>
+</div>
+
+<div class="container" id="post-container">
+  <div class="row">
+    <div class="forums_box">
+      <% if can? :update, @post %>
+        <div class="boton-editar">
+          <h2><%= link_to "Edit Post", edit_forum_post_path(@forum, @post)%></h2>
+        </div>
+      <% end %>
+
+      <div class="title-post">
+        <h1>
+          <%= @post.title %>
+        </h1>
+      </div>
+
+      <div class="topic-post">
+        <h2>
+          Topic: <%= @post.topic %>
+        </h2>
+      </div>
+
+      <p>
+        <div class="justify-text">
+          <%= raw markdownify @post.content %>
+        </div>
+
+
+
+      </p>
+
+      <% if String(@post.image) != "/images/original/missing.png" %>
+        <%= image_tag @post.image.url(:medium) %>
+      <% end %>
+
+      <br>
+      
+      <% if user_signed_in? %>
+                    <% if current_user.favorites.include? @post%>
+                      <%= button_to "Unfavorite",favorite_forum_post_path(@forum, @post, type: "unfavorite"), method: :put, class: "btn btn-success"%>
+                    <% else%>
+                      <%= button_to "Favorite",favorite_forum_post_path(@forum, @post, type: "favorite"), method: :put, class: "btn btn-success"%>
+                    <%end%>
+                    <br>
+                    <p class="btn btn-success">Score Post!:<%= @post.reputation_score %> </p>
+                    <br>
+                    <%= link_to like_forum_post_path(@forum, @post), class: "like", method: :put do%>
+                      <br>
+                      <button type="button" class="btn btn-info" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+                        <span class="badge" > <%= @post.get_upvotes.size %> </span>
+                      </button>
+                    <% end %>
+
+                    <%= link_to unlike_forum_post_path(@forum, @post), class: "like", method: :put do%>
+                      
+                      <button type="button" class="btn btn-info" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+                        <span class="badge" > <%= @post.get_downvotes.size %> </span>
+                      </button>
+                    <% end %>
+      <% end %>
+
+
+      
+    </div>
+
+    <hr class="my-4">
+
+
+    <div class="col-md-4">
+      <h4>Add new comment</h4>
+      <div class="container-form-2">
+        <% if can? :create, Post %>
+          <% @comment = Comment.new %>
+          <%= render "comments/form"%>
+        <%end%>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <h2 id="margin-0">Comments</h2>
+      <% if @post.comments.any? %>
+        <%= render @post.comments %>
+      <%end%>
+    </div>
+    <br>
+
+  </div>
+  </div>
+  </div>
+</div>

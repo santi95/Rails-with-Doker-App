@@ -1,0 +1,19 @@
+
+<div class="container-form">
+  <div class="forums_box">
+    <h1 class="title-new">
+      New Forum
+    </h1>
+    <%= simple_form_for @forum do |f| %>
+      <%= f.input :name, label: "Forum Name", :input_html => { :maxlength => 30, :style=> 'font-size: 20px;'} %>
+      <%= f.input :subject %>
+      <%= f.input :description, :as =>  :text, :input_html => { :row => 20, :style=> 'width: 100%; height: 200px;'} %>
+
+<div class="row">
+  <div class="col-6 pull-left">
+
+      <%= f.button :submit, 'Create Forum', class:"btn btn-success" %>
+  </div>
+    <% end %>
+
+

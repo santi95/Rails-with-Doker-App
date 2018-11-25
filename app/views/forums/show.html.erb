@@ -1,0 +1,91 @@
+<div class="home-jumbotron-2">
+</div>
+<div class="sub_bar">
+  <h1 id="margin-title">Forums</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+  <div class="forums_box">
+      <h2>
+        Subscribers: <%= @forum.number_subscriptions %>
+      </h2>
+      <div class="boton-editar">
+        <% if can? :update, @forum %>
+      <h2>
+        <%= link_to "Edit Forum", edit_forum_path(@forum)%>
+      </h2>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <% if current_user.application_deck.include? @forum%>
+            <%= button_to "UNAPPLY MODERATOR",aplicaciones_forum_path(@forum, type: "desaplicar"), method: :put, class: "btn btn-success"%>
+        <%else%>
+            <%= button_to "APPLY MODERATOR",aplicaciones_forum_path(@forum, type: "aplicar"), method: :put, class: "btn btn-success"%>
+        <%end%>
+      <% end %>
+
+      </div>
+      <h1 class="title-forum">
+        <%= @forum.name %>
+      </h1>
+      <h2 class="subtitle-forum">
+        <%= @forum.subject %>
+      </h2>
+      <h4 class="content-forum" class="justify">
+        <%= @forum.description %>
+      </h4>
+      <br>
+      <%= form_tag(forum_path(@forum), :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: " Search Posts", class: 'groove' %>
+          <%= submit_tag "Search", :name => nil, class: 'btn-md1' %>
+      <% end %>
+      <br>
+
+      
+    <hr class="my-4">
+    <div class="row">
+        <div class="container-post-forum">
+          <h2 class="title-post">
+            Posts
+          </h2>
+        <% if @the_search.blank? %>
+          <% if params[:search].blank? %>
+
+              <h3>1
+                There are no Posts
+              </h3>
+
+          <% else %>
+
+            <h4>
+              There are no Posts containing the term: <%= params[:search] %>.
+            </h4>
+          <% end %>
+
+        <% else %>
+        
+          <% if params[:search].blank? %>
+
+          <% else %>
+
+            <h4>Results for Posts Search on: <%= params[:search] %>.</h4>
+
+        <% end %>
+          <%= render @the_search %>
+      <% end %>
+          <h4 id="title-new-post">
+            Add new post
+          </h4>
+          <div class="container-form-2">
+            <% if can? :create, Post %>
+              <% @post = Post.new %>
+              <%= render "posts/form"%>
+            <%end%>
+          </div>
+
+        </div>
+    </div>
+    </div>
+  </div>
+

@@ -1,0 +1,83 @@
+
+
+<div class="container">
+  <div class="container-general-2">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h2 class="title has-text-grey" id="centered-text">
+            Edit <%= resource_name.to_s.humanize %>
+          </h2>
+          <p class="subtitle has-text-grey" id="centered-text">
+            Edit yout profile.
+          </p>
+          <div class="box-3">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <% if String(current_user.user_img) != "/images/original/missing.png" %>
+                <%= image_tag current_user.user_img.url(:thumb), :style => "height: 40px; width: 40px;" %>
+              <% end %>
+
+              <div  class="image_upload">
+                  <%= f.file_field :user_img, autocomplete: "user_img" %>
+              </div>
+
+              <div class="field">
+                  <%= f.label :name %><br />
+                  <%= f.text_field :name, autocomplete: "name" , class:"form-group col-md-5", class:"form-control", id: "width-93"%>
+                  </div>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-group col-md-5", class:"form-control", id: "width-93"%>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="field">
+                New <%= f.label :password%>
+                <div><i>(leave blank if you don't want to change it)</i><br /></div>
+                <div style="color: #000000">
+                <%= f.password_field :password, autocomplete: "off", class:"form-group col-md-5", class:"form-control", id: "width-93" %>
+                </div>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <div style="color: #000000">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-group col-md-5", class:"form-control", id: "width-93" %>
+                </div>
+              </div>
+
+              <div class="field">
+                <%= f.label :current_password %>
+                <div><i>(we need your current password to confirm your changes)</i></div><br />
+                <%= f.password_field :current_password, autocomplete: "off", class:"form-group col-md-5", class:"form-control", id: "width-93"  %>
+              </div>
+
+                <%= f.submit "Update", class:"btn btn-lg btn-primary", id:"margin-auto" %>
+            <% end %>
+
+
+                <div class="downstairs" style="color: #000000">
+                <p>Unhappy?</p>
+                </div>
+                 <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-warning" %>
+
+                <div class="downstairs">
+                <%= link_to "Back", :back %>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+
+
+<body>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<h1>Moderators</h1>
+<br>
+<div class="row">
+      <div class="col-md-7">
+        <table class="tborder">
+          <thead>
+            <tr>
+              <th class="trow2">
+                Name
+              </th>
+              <th class="trow2">
+                Reputation
+              </th>
+              <th class="trow2">
+                Forum
+              </th>
+              <th class="trow2">
+                Current Role
+              </th>
+              <th class="trow2">
+              Accept
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @apply.each do |application|%>
+            <% @user = User.find(application.user_id) %>
+            <% @forum = Forum.find(application.forum_id) %>
+            <tr>
+
+              <td class="trow1">
+                <strong>
+                  <%= @user.name %>
+                </strong>
+
+              </td>
+
+              <td class="trow1">
+                  <%= @user.reputation %>
+
+              </td>
+
+              <td class="trow1" id="align-center">
+                  <%= @forum.name %>
+
+              </td>
+
+              <td class="trow1" id="align-center">
+                <% unless @user.role == "admin" %>
+                  <% if @user.moderated_forums.include? @forum.id %> 
+                    <%= "moderator" %>
+                  <% else %>
+                    <%= "common" %>
+                  <% end %>
+                <% else %>
+                  <%= @user.role%>
+                <% end %>
+
+              </td>
+
+              <td class="trow1" id="align-center">
+              
+                <% unless @user.moderated_forums.include? @forum.id %>
+                  <%= button_to "ADD MODERATOR", administrator_index_path(accion: "add", :user_mf => @user.id, :mf => @forum.id), method: :post, class: "btn btn-success" %>
+                <% else %>
+                  <%= button_to "REMOVE MODERATOR", administrator_index_path(accion: "remove", :user_mf => @user.id, :mf => @forum.id), method: :post, class: "btn btn-success" %>
+                <% end %>  
+              </td>
+
+
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+      </div>
+</div>
+
+ 
+

@@ -1,0 +1,73 @@
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+      <div class="container">
+        <div class="container-general-2">
+          <section class="hero">
+            <div class="hero-body">
+              <div class="container has-text-centered">
+                  <h1 class="title has-text-grey" id="centered-text">
+                    Sign Up
+                  </h1>
+                  <p class="subtitle has-text-grey" id="centered-text">
+                    Please sign in to proceed.
+                  </p>
+                  <div class="box-1">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
+                      <%= devise_error_messages! %>
+
+                      <label>
+                        Add Image Profile
+                      </label>
+
+                      <div  class="image_upload">
+                      <%= f.file_field :user_img, autocomplete: "user_img" %><br />
+                      </div>
+
+
+                      <div class="field">
+                      <%= f.label :name %><br />
+                      <%= f.text_field :name, autocomplete: "name", class:"form-group col-md-5", class:"form-control", id: "width-93" %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email, autofocus: false, autocomplete: "email", class:"form-group col-md-5", class:"form-control", id: "width-93" %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password %>
+                        <% if @minimum_password_length %>
+                        <em><div>(<%= @minimum_password_length %> characters minimum)</div></em>
+                        <% end %>
+                        <div>
+                        <%= f.password_field :password, autocomplete: "off", class:"form-group col-md-5", class:"form-control", id: "width-93" %>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password_confirmation %><br />
+                        <div >
+                        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-group col-md-5", class:"form-control", id: "width-93" %>
+                        </div>
+                      </div>
+                        
+
+                    <div>
+                      <%= f.submit "Sign up", class:"btn btn-lg btn-primary"%>
+                      <% end %>
+                      <%= link_to "Log In", new_user_session_path, class:"btn btn-lg btn-primary" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+</body>

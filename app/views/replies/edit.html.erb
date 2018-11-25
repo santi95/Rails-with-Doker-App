@@ -1,0 +1,21 @@
+<div class="home-jumbotron-2">
+</div>
+<div class="sub_bar">
+  <h1 id="margin-title">Post</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h1>Edit/Destroy Reply </h1>
+      <% if can? :destroy, @reply %>
+      <%= simple_form_for [@forum, @post, @comment, @reply] do |f|%>
+      <%= f.input :content, :as =>  :text, :input_html => { :row => 15, :style=> 'width: 98%; height: 80px;'} %>
+      <%= f.button :submit, 'Reply',class:"btn btn-success"  %>
+      <%end%>
+      <br>
+      <%= link_to '<button type="button" class="btn btn-warning">Delete</button>'.html_safe, forum_post_comment_reply_path(@forum, @post, @comment,@reply), method: :delete, data: {confirm:
+      "Are you sure?"}%>
+    <% end %>
+
+  </div>
+</div>

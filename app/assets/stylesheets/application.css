@@ -1,0 +1,277 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .page-container {
+   margin-top: 200px;
+ }
+ .hero {
+     align-items: stretch;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
+
+ .hero-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3rem 1.5rem;
+}
+
+.has-text-centered {
+    width: 400px;
+}
+
+.has-text-grey {
+    color: #7a7a7a !important;
+}
+
+.box {
+    background-color: white;
+    border-radius: 6px;
+    height: 250px;
+    box-shadow: 0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+}
+
+.box-1 {
+    background-color: white;
+    border-radius: 6px;
+    height: 500px;
+    width: 100%;
+    box-shadow: 0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+}
+
+.box-2 {
+    background-color: white;
+    border-radius: 6px;
+    height: 300px;
+    width: 100%;
+    box-shadow: 0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+}
+
+.box-3 {
+    background-color: white;
+    border-radius: 6px;
+    height: 700px;
+    width: 100%;
+    box-shadow: 0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+}
+
+
+.field:not(:last-child) {
+    margin-bottom: 0.75rem;
+}
+
+.button.is-large {
+    font-size: 1.5rem;
+}
+
+.button.is-info {
+    background-color: #209cee;
+    border-color: transparent;
+    color: #fff;
+}
+.is-block {
+    display: block !important;
+}
+
+.section {
+    padding: 3rem 1.5rem;
+}
+
+section {
+    display: block;
+}
+
+.title:not(.is-spaced) + .subtitle {
+    margin-top: -1.25rem;
+}
+
+.title.is-5 {
+    font-size: 1.25rem;
+}
+
+.navbar-brand, .navbar-tabs {
+    align-items: stretch;
+    display: flex;
+    flex-shrink: 0;
+    min-height: 3.25rem;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+a.navbar-item, .navbar-link {
+    cursor: pointer;
+}
+
+
+.field.is-grouped {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.control {
+    font-size: 1rem;
+    position: relative;
+    text-align: left;
+}
+
+.button.is-light {
+    background-color: whitesmoke;
+    border-color: transparent;
+    color: #363636;
+    margin: 0 auto;
+}
+
+.justify-text{
+  text-align: justify
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.subnavbar {
+  width: 100%;
+  display: flex;
+}
+
+.flex-end {
+  margin-left: auto;
+}
+
+.container-general{
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 90%;
+}
+
+.container-general-2{
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 90%;
+}
+
+.container-form{position: relative;
+  background-color: #fff;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 100%;
+}
+
+.container-form-2{
+  background-color: #fff;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  margin: 0 auto;
+  margin-top: 0px;
+  width: 100%;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+.simple_form .new_post {
+  width: 100px;
+}
+.bg {
+  background-image: url("fondo.jpg") no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 350px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.jumbotron {
+  height: 350px;
+  color: white;
+  text-shadow: #444 0 1px 1px;
+  background:transparent;
+}
+
+.home-jumbotron-2 {
+  background-image: url("fondo.jpg");
+  background-size: cover;
+  background-position: 10% 10%;
+  width: 100%;
+  min-height: 500px;
+
+}
+
+.sub_bar {
+  background-color: #0A369D;
+  background-size: cover;
+  opacity: 0.3;
+  filter: alpha(Opacity=75);
+  width: 100%;
+  height: 50px;
+  color:white;
+}
+
+#width-1{
+  width: 100%;
+}
+
+#width-93{
+  width: 90%;
+}
+
+#centered-text{
+  text-align: center !important;
+}
+
+#margin-auto{
+  margin: 0 auto;
+}
+
+#margin-title{
+  margin-top: 0px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+}
+
+.groove {border-style: groove;}
+
+.separado {
+    margin-left: 5px;
+}

@@ -1,0 +1,77 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.two_chars_box {background-color: White;
+  margin: 0 auto;
+  width: 70%;
+  color:black;
+  opacity:0.7;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: bold
+}
+
+.content-post{background-color: White;
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 80%;
+  color:black;
+}
+
+.topic-post{
+  text-align: center;
+  font-size: 10px
+}
+
+.title-post{
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card_post_tittle{
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color:black;
+}
+
+.Box-row:first-of-type {
+    border-top-color: transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.text-small {
+    font-size: 12px !important;
+}
+
+.text-bold {
+    font-weight: 600 !important;
+}
+
+#style_card{
+  background-color: #f0f0f0;
+  border: 1px solid DarkGrey;
+  margin: 0 auto;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border-radius: 3px;
+  width: 90%;
+  min-height: 120px;
+}
+
+
+#post-container {
+  margin: 0 auto;
+}
+.control-label {
+  font-size: 20px;
+}
+
+#margin-0{
+  margin-top: 0px;
+  font-weight: bold;
+}

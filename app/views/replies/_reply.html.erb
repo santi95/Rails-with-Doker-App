@@ -1,0 +1,18 @@
+
+    <hr class="my-4" id="color_line">
+    <p id=font_style_1>
+      Replied <%= time_ago_in_words(reply.created_at) %> ago by <%= reply.user.name + ": " %>
+    </p>
+    <div class="justify-text"> <%= raw markdownify_reply reply.content %> </div>
+    <% if String(reply.image) != "/images/original/missing.png" %>
+      <img src=<%= reply.image %> style="height:300px; width:300px;" >
+    <%end%>
+    <% if can? :update, reply %>
+    <%= link_to edit_forum_post_comment_reply_path(reply.comment.post.forum, reply.comment.post, reply.comment,reply), class: "like", method: :get do%>
+    <br>
+    <button type="button" class="btn btn-info" aria-label="Left Align">
+      Edit / Delete
+    </button>
+    <% end %>
+    <% end %>
+    <hr class="my-4" id="color_line">

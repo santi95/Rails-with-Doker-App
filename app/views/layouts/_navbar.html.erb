@@ -1,0 +1,72 @@
+<header class="navbar navbar-fixed-top navbar-inverse" id="navbar">
+  <div class="container">
+    <nav>
+      <div class="navbar-brand">
+        <img src="../../assets/llamita.png" id="llamita">
+      </div>
+      <div class="navbar-brand">
+        <a class="navbar-item">
+         <%= link_to "HOME", root_path, id: "general-menu"%>
+        </a>
+      </div>
+
+      <div class="navbar-brand">
+        <a class="navbar-item">
+         <%= link_to "Forums",   forums_path, id: "general-menu"%>
+        </a>
+      </div>
+
+      <div class="navbar-brand">
+        <a class="navbar-item">
+         <%= link_to "Stats",   stat_path, id: "general-menu"%>
+        </a>
+      </div>
+
+
+      <% if user_signed_in? %>
+        <div class="navbar-brand">
+          <a class="navbar-item">
+          <%= link_to "Favorites",   favorites_path, id: "general-menu"%>
+          </a>
+        </div>
+      <%end%>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <div class="navbar-brand">
+            <a href="/users/edit">
+              <% if String(current_user.user_img) != "/images/original/missing.png" %>
+                <%= image_tag current_user.user_img.url(:thumb), :style => "height: 40px; width: 40px;" %>
+              <%else%>
+                <p id="no-picture-user"><%= current_user.name %></p>
+              <% end %>
+            </a>
+          </div>
+          <div class="navbar-brand">
+            <a href="/users/edit">
+             <%= link_to "Log Out  ", destroy_user_session_path, method: :delete , id: "general-menu"%>
+            </a>
+            
+          </div>
+            <!-- <a href="/users/edit">
+              <%= image_tag current_user.user_img.url(:thumb), :style => "height: 40px; width: 40px;" %>
+            </a> -->
+            <li>
+            <% if current_user.admin?%>
+              <%= link_to "Admin Page", administrator_index_path, id: "general-menu"%>
+            <% end %>
+            </li>
+            
+            
+          
+        <% end %>
+
+        <% if current_user.nil? %>
+            <li><%= link_to 'Log in',   new_user_session_path, id: "general-menu" %></li>
+            <li><%= link_to 'Sign up',   new_user_registration_path, id: "general-menu" %></li>
+        <% end %>
+        </ul>
+
+      </nav>
+    </div>
+</header>

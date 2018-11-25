@@ -1,0 +1,15 @@
+
+<div class="container">
+  <%= simple_form_for([@forum, @post]) do |f|%>
+      <%= f.input :title, :input_html => { :maxlength => 30, :style=> 'font-size: 20px; width: 810px'}  %>
+      <%= f.input :topic, input_html: { :style=> 'font-size: 20px; width: 810px;'} %>
+      <%= f.input :content, :as =>  :text, :input_html => { :row => 20, :style=> 'width: 810px; height: 200px;'} %>
+      <%= f.input :image, as: :file %>
+
+<div class="row">
+  <div class="col-6 pull-left">
+      <%= f.button :submit, 'Create',class:"btn btn-success" %>
+    <%end%>
+  </div>
+
+

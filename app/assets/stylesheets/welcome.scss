@@ -1,0 +1,26 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#home-jumbotron {
+  margin-top: 2%;
+  background-image: url("fondo.jpg");
+  background-position: top;
+  background-size: auto;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 650px;
+}
+#home-jumbotron2 {
+  margin-top: 2%;
+  background-image: url("fondo.jpg");
+  background-position: top;
+  background-size: auto;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 650px;
+}
+
+#page-name {
+  margin-left: 50px;
+  margin-top: 0px;
+}

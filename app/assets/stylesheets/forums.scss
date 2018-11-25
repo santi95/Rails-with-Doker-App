@@ -1,0 +1,145 @@
+// Place all the styles related to the Forums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#background-color-container{background-color: DarkGrey
+}
+
+.forums_box {
+  sbackground-color: White;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 80%;
+  color:black;
+  opacity:0.7;
+  margin-bottom: 5px;
+}
+
+.tborder {
+    background: #fff;
+    width: 100%;
+    margin: auto auto;
+    border: 1px solid #e4e6e9;
+    padding: 5px;
+    border-radius: 50px;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.tborder-2 {
+    background: #fff;
+    width: 70%;
+    margin: auto auto;
+    border: 1px solid #e4e6e9;
+    padding: 5px;
+    border-radius: 50px;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.trow1 {
+    background: #fff;
+    border-bottom: 1px dashed #e7e6e6;
+    padding: 10px;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.trow2 {
+    background: LightGray;
+    padding: 10px;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.trow3 {
+    background: White;
+    padding: 10px;
+    font-family: 'Droid Sans', sans-serif;
+    border-bottom: 1px dashed #e7e6e6;
+}
+
+.smalltext {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.smalltext_2 {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 13px;
+}
+
+.container-post-forum{background-color: White;
+  margin: 0 auto;
+  width: 90%;
+  color:black;
+}
+
+// .container-subscription{background-color: White;
+//   box-shadow: 0 2px 3px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);
+//   border: 1px solid LightGray;
+//   margin: 0 auto;
+//   width: 20%;
+//   color:black;
+// }
+
+.title-forum{
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.title-new{
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color:black;
+}
+
+.subtitle-forum{
+  font-size: 20px;
+  text-align: center;
+}
+.title-post{
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.content-forum{background-color: White;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 80%;
+  color:black;
+  word-wrap: break-word;
+}
+
+#white-space{
+  white-space: nowrap;
+}
+
+#align-center{
+  text-align: center;
+}
+
+#title-new-post{
+  text-align: left;
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.form-control {
+  width: 70%;
+}
